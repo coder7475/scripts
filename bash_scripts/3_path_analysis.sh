@@ -19,4 +19,5 @@ echo $PATH | tr ':' '\n' | wc -l
 echo ""
 # List the first 5 directories in PATH
 echo "First 5 directories in PATH:"
+echo $PATH | tr ':' '\n' | head -n 5
 echo "..."
