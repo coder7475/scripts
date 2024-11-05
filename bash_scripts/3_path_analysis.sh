@@ -8,6 +8,8 @@
 echo "Full PATH:"
 echo $PATH
 
+echo "Directories in PATH:"
+echo $PATH | tr ':' '\n'
 
 # Count and display the number of directories in PATH
 echo "Number of directories in PATH: ..."
