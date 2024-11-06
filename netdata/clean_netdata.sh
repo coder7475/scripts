@@ -1,4 +1,4 @@
-!#/bin/bash
+#!/bin/bash
 # completely uninstall / purge and remove all configs for netdata
 
 # Netdata installed through Kickstarter.sh has a different directory structure from apt-get install netdata.
