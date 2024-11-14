@@ -2,4 +2,4 @@
 
 sudo add-apt-repository -y ppa:git-core/ppa
 sudo apt-get update
-sudo apt-get install git -ys
+sudo apt-get install git -y
