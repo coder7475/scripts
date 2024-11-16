@@ -4,7 +4,7 @@
 KEEP_BRANCHES=("main" "development" "staging")
 
 # Regular expression to match the branches to keep
-KEEP_REGEX="$(IFS=\|; echo "${KEEP_BRANCHES[*]}")|release/|sprint/"
+KEEP_REGEX="^($(IFS=\|; echo "${KEEP_BRANCHES[*]}")$|release/.*|sprint/.*)"
 
 echo "Fetching latest changes from remote..."
 git fetch --all --prune
