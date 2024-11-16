@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 # This script sends raw Ethernet frames from a network interface to a destination MAC address
 #
 # Usage: ethsend eth0 ff:ff:ff:ff:ff:ff 'Hello everybody!'
@@ -69,3 +68,5 @@ def main():
 
 if __name__ == "__main__":
   main()
+
+# ⚠️ CAP_NET_RAW capability is required to run the above code (or just use sudo).
