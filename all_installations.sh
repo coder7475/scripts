@@ -36,12 +36,14 @@ sudo ufw enable
 sudo ufw status
 
 # Install Certbot
-sudo apt-get install certbot python3-certbot-nginx
+sudo apt-get install certbot python3-certbot-nginx -y
+# Install fail2ban
+sudo apt install fail2ban -y
 
 # Final Server hardening
 sudo apt update
 sudo apt upgrade -y
-sudo apt autoremove
+sudo apt autoremove -y
 
 sudo node -v
 sudo nginx -v
