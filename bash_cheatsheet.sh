@@ -3,7 +3,7 @@
 # SHORTCUTS and HISTORY
 ##############################################################################
 
-CTRL+A  # move to beginning of line
+ctrl+a  # move to beginning of line
 CTRL+B  # moves backward one character
 CTRL+C  # halts the current command
 CTRL+D  # deletes one character backward or logs out of current session, similar to exit
@@ -22,7 +22,7 @@ CTRL+Q  # resumes suspended shell output
 CTRL+R  # searches backward
 CTRL+S  # searches forward or suspends shell output
 CTRL+T  # transposes two characters
-CTRL+U  # kills backward from point to the beginning of line
+CTRL+U  # ki backward from point to the beginning of line
 CTRL+V  # makes the next character typed verbatim
 CTRL+W  # kills the word behind the cursor
 CTRL+X  # lists the possible filename completions of the current word
