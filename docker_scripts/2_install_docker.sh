@@ -27,6 +27,4 @@ sudo systemctl start containerd
 sudo systemctl start docker
 
 # Check the status
-sudo systemctl status containerd
-sudo systemctl status docker
-
+docker --version
