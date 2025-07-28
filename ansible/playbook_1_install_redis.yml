@@ -1,0 +1,30 @@
+- name: Install and configure Redis on all nodes
+  hosts: redis
+  become: true
+  tasks:
+    - name: Update APT cache
+      apt:
+        update_cache: true
+
+    - name: Install Redis
+      apt:
+        name: redis-server
+        state: present
+
+    - name: Configure redis.conf
+      blockinfile:
+        path: /etc/redis/redis.conf
+        block: |
+          bind 0.0.0.0
+          protected-mode no
+          port 6379
+          cluster-enabled yes
+          cluster-config-file nodes.conf
+          cluster-node-timeout 5000
+          appendonly yes
+
+    - name: Restart Redis
+      service:
+        name: redis-server
+        state: restarted
+        enabled: true
