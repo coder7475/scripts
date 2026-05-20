@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 set -e
 
+echo "==> Updating system..."
+
+sudo apt update && sudo apt upgrade -y && sudo apt clean
+
 echo "==> Installing base dependencies..."
 
-sudo apt update
 sudo apt install -y \
   git curl wget unzip \
   build-essential cmake \
@@ -20,16 +23,10 @@ sudo apt install -y \
 
 echo "==> Running Git configuration..."
 
-# setup_git_config.sh
-# Configure Git user identity (global)
-
 git config --global user.name "coder7475"
 git config --global user.email "robiulhossain7475@gmail.com"
 
-# Optional: set default branch name to main
 git config --global init.defaultBranch main
-
-# Optional: enable credential caching (15 minutes)
 git config --global credential.helper 'cache --timeout=900'
 
 echo "✅ Git global configuration has been set successfully!"
