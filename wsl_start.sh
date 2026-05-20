@@ -49,7 +49,7 @@ echo "==> Public SSH key:"
 cat "${SSH_KEY}.pub"
 
 #################################################
-# 1. NODE (NVM) + PNPM + ALIAS + OPCODE
+# NODE (NVM) + PNPM + ALIAS + OPCODE
 #################################################
 
 echo "==> Installing NVM..."
@@ -83,7 +83,7 @@ echo "==> Installing OpenCode..."
 curl -fsSL https://opencode.ai/install | bash
 
 #################################################
-# 2. DOCKER
+# DOCKER
 #################################################
 
 echo "==> Installing Docker..."
@@ -116,14 +116,33 @@ echo "==> Enabling Docker without sudo..."
 sudo usermod -aG docker $USER
 
 #################################################
-# 3. NEOVIM + LAZYVIM
+# NEOVIM (v0.11.7 via tarball) + LAZYVIM
 #################################################
 
-echo "==> Installing Neovim..."
+echo "==> Installing Neovim v0.11.7 from tarball..."
 
-sudo add-apt-repository -y ppa:neovim-ppa/stable
-sudo apt update
-sudo apt install -y neovim
+cd /tmp
+
+wget https://github.com/neovim/neovim/releases/download/v0.11.7/nvim-linux-x86_64.tar.gz
+
+tar xzvf nvim-linux-x86_64.tar.gz
+
+sudo rm -rf /opt/nvim
+sudo mv nvim-linux-x86_64 /opt/nvim
+
+# Add to PATH if not already present
+if ! grep -q '/opt/nvim/bin' ~/.bashrc; then
+  echo 'export PATH="/opt/nvim/bin:$PATH"' >> ~/.bashrc
+fi
+
+source ~/.bashrc
+
+echo "==> Verifying Neovim..."
+nvim --version | head -n 1
+
+#################################################
+# BACKUP + LAZYVIM
+#################################################
 
 echo "==> Backing up Neovim config..."
 
